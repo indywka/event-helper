@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event-helper</title>
+  <style type="text/css">
+    main {
+      width: 100%;
+      height: 100%;
+    }
+
+    user-form, speaker-form {
+      width: 20%;
+      height: 100%;
+      float: left;
+
+    }
+
+    user-form {
+      background-color: #F7FDEB;
+      width: 50%;
+    }
+
+    speaker-form {
+      background-color: #DAE9BC;
+      width: 50%;
+    }
+  </style>
+
+</head>
+<body>
+<main>
+  <div align="center"><h2>Who are you?</h2></div>
+  <speaker-form>
+    <div>
+      <p align="center"><input type="button" onclick="location.href='/speak';" value="Speaker"></p>
+    </div>
+  </speaker-form>
+  <user-form>
+    <div>
+      <p align="center"><input type="button" onclick="location.href='/user';" value="User"></p>
+    </div>
+  </user-form>
+</main>
+</body>
+</html>

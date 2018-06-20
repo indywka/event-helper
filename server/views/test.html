@@ -1,0 +1,111 @@
+<html ng-app="uploadTest">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/images.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<main>
+
+
+  <ul class="collapsible">
+
+    <li>
+      <div class="collapsible-header">
+        Upload
+      </div>
+      <div class="collapsible-body">
+        <p>
+        <div ng-controller="uploadCtrl">
+          <form action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" file-model="myFile"/>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </form>
+          <a class="waves-effect waves-teal btn-flat" ng-click="uploadFile()">UPLOAD</a>
+        </div>
+        </p>
+      </div>
+    </li>
+
+    <li>
+      <div class="collapsible-header">
+        Help
+      </div>
+      <div class="collapsible-body"><p>Нажмите кнопку "Upload". Выберите файл для презентации. Нажмите кнопку
+        "Открыть".
+        Дождитесь загрузки и обработки файла. </p></div>
+    </li>
+
+
+
+    <li>
+      <div class="collapsible-header">
+        Preview
+      </div>
+      <div class="collapsible-body" id="imagelist">
+<script src="js/addingImages.js"></script>
+      </div>
+    </li>
+
+
+  </ul>
+</main>
+<script>
+  var myApp = angular.module('uploadTest', []);
+
+  myApp.directive('fileModel', ['$parse', function ($parse) {
+    return {
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        var model = $parse(attrs.fileModel);
+        var modelSetter = model.assign;
+
+        element.bind('change', function () {
+          scope.$apply(function () {
+            modelSetter(scope, element[0].files[0]);
+          });
+        });
+      }
+    };
+  }]);
+
+  myApp.controller('uploadCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.uploadFile = function () {
+      var file = $scope.myFile;
+      var fd = new FormData();
+      fd.append('file', file);
+
+      $http.post("http://100.95.255.252:1337/fileUpload/uploadFile", fd, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      }).success(function (res) {
+        console.log(res);
+      }).error(function () {
+      });
+    };
+  }]);
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>if (!window.jQuery) {
+  document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>');
+}</script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>
