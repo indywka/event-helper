@@ -1,24 +1,25 @@
 var index = 1;
-var tempImg = new Image();
+var tempImg = new Image(), cl = console.log;
 
 //тут вызываем функцию appendImage()
-tempImg.onload = function(){
+tempImg.onload = function () {
   appendImage();
 };
 
 //присваиваем переменной tempImg путь нашего изображения с индексом index
-var tryLoadImage = function( index ){
+var tryLoadImage = function (index) {
   tempImg.src = 'images/' + index + '.jpg';
 };
 
 //переменной img прсваиваем знач. tempImg и добавляем
-var appendImage = function(){
+function appendImage() {
+  var imagelist = document.getElementById('imagelist');
   var img = document.createElement('img'); // создаем имя для тега
   img.src = tempImg.src;
-  document.body.appendChild( img ); // присваиваем адрес нашей картинки переменной img.src
-  tryLoadImage( index++ )
-  console.log("image was loaded \t" + index );
-};
+  imagelist.appendChild(img); // присваиваем адрес нашей картинки переменной img.src
+  tryLoadImage(++index);
+  console.log("image was loaded \t" + index);
+}
 
 
-tryLoadImage( index );
+tryLoadImage(index);
