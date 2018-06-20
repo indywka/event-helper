@@ -6,11 +6,11 @@
  */
 
 module.exports = {
-	uploadFile : function(req, res){
+	 uploadFile : function(req, res){
 		req.file('file').upload({
 			// Directory path where you want to save...
-			dirname : 'C:/Users/Mukul Softwap/Desktop/'
-			
+			dirname : 'C:/Users/User/Desktop/downloads'
+
 		},function(err, file){
 			if(err) console.log(err);
 			res.json({"status" : "file upload successfully" , "file" :file});
