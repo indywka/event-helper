@@ -15,7 +15,8 @@ new Vue({
                     <img class="preview" :src="imageData">
                  </div>
                    </div>
-                   <input type="submit"/>
+                <button class="btn waves-light " type="submit" name="action">Submit</button>
+                   <!--<input type="submit"/>-->
              </form>
         </div>
     `,
