@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/images.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <!--END-HEAD-->
 
@@ -27,21 +27,7 @@
       </div>
       <div class="collapsible-body">
         <p>
-        <div>
-          <form action="file/upload" method="post" enctype="multipart/form-data">
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>File</span>
-                <input type="file" name="myFile"/>
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-            </div>
-            <input type="submit"/>
-            <a class="waves-effect waves-teal btn-flat" type="submit">UPLOAD</a>
-          </form>
-        </div>
+        <div id="app"></div>
         </p>
       </div>
     </li>
@@ -61,7 +47,7 @@
       <div class="collapsible-header">
         Preview
       </div>
-      <div class="collapsible-body">
+      <div class="collapsible-body" id="imagelist">
         <script src="js/addingImages.js" type="text/javascript"></script>
       </div>
     </li>
@@ -74,13 +60,16 @@
 
 <!--SCRIPTS-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://unpkg.com/vue@2.5.16/dist/vue.js"></script>
+
 <script>if (!window.jQuery) {
     document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>');
   }</script>
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/upload.js"></script>
+<link href="css/images.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 <!--END-SCRIPTS-->
 
 

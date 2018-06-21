@@ -36,10 +36,6 @@ module.exports.routes = {
     view: 'start',
   },
 
-  '/speaker/upload': {
-    view: 'upload'
-  },
-
   '/user': {
     view: 'user'
   },

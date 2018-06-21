@@ -20,22 +20,26 @@ module.exports = {
     // etc.
     //
     // Node defaults to 2 minutes.
-    res.setTimeout(0)
+    // res.setTimeout(0)
 
     req.file('myFile').upload({
 
-        // You can apply a file upload limit (in bytes)
-        maxBytes: 200000000000
+      // You can apply a file upload limit (in bytes)
+      maxBytes: 200000000000,
+      dirname: 'C:/Users/User/Desktop/downloads'
 
-      })
-      // ,
+    }
+    // ,
 
       // function (err, uploadedFiles) {
-      //   if (err) {console.log(err)}
-      //   console.log(res.json({'status': 'file upload successfully', 'file': uploadedFiles}))
-      // })
+        // if (err) console.log(err)
+        //
+        // return console.log(res.json({'status': 'file upload successfully', 'file': uploadedFiles}))
+      // }
+  )
   }
 }
+
 
 
 
