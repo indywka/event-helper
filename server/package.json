@@ -2,7 +2,7 @@
   "name": "fileUpload",
   "private": true,
   "version": "0.0.0",
-  "description": "a Sails application",
+  "description": "Sails application",
   "keywords": [],
   "dependencies": {
     "axios": "^0.18.0",
@@ -25,8 +25,7 @@
     "pdf2png-mp": "^0.5.4",
     "rc": "1.0.1",
     "sails": "~0.12.11",
-    "sails-disk": "~0.10.9",
-    "sails-hook-autoreload": "^1.1.0"
+    "sails-disk": "~0.10.9"
   },
   "scripts": {
     "debug": "node debug app.js",
