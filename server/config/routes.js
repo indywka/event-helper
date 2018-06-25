@@ -43,27 +43,6 @@ module.exports.routes = {
   '/speak': {
     view: 'speak',
   },
-  '/secondpage': {
-    controller: 'SlidesController',
-    action: 'start'
-  },
-  '/next':{
-    controller: 'SlidesController',
-    action: 'next'
-  },
-
-  '/prev':{
-    controller: 'SlidesController',
-    action: 'prev'
-  },
-
-
-
-
-  '/connect':{
-    controller: 'ConctController',
-    action: 'con'
-  }
 
 
 

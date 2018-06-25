@@ -19,7 +19,6 @@ new Vue({
                 <button class="btn waves-light " type="submit" name="action">Submit</button>
                    <!--<input type="submit"/>-->
              </form>
-             <input type="button" value="start" onclick="location.href='/secondpage'">
         </div>
     `,
 
