@@ -14,26 +14,28 @@ module.exports = {
    */
   upload: function (req, res) {
 
-    req.setTimeout(0)
+    // e.g.
+    // 0 => infinite
+    // 240000 => 4 minutes (240,000 miliseconds)
+    // etc.
+    //
+    // Node defaults to 2 minutes.
+    res.setTimeout(0)
 
     req.file('myFile').upload({
 
-        maxBytes: 200000000000,
-        dirname: 'C:/Users/User/Desktop/downloads'
+        // You can apply a file upload limit (in bytes)
+        maxBytes: 200000000000
 
-      },
+      })
+      // ,
 
-      function (err) {
-        if (err) console.log(err)
-        else {
-          return res.ok()
-        }
-        window.location = '/speak'
-      }
-    )
+      // function (err, uploadedFiles) {
+      //   if (err) {console.log(err)}
+      //   console.log(res.json({'status': 'file upload successfully', 'file': uploadedFiles}))
+      // })
   }
 }
-
 
 
 
