@@ -2,6 +2,7 @@ new Vue({
   el: '#app',
   template: `
         <div>
+            <!--<form action='page/upload' method="post" enctype="multipart/form-data">-->
             <form action="file/upload" method="post" enctype="multipart/form-data">
                           <div class="file-field input-field">
                            <div class="btn">
