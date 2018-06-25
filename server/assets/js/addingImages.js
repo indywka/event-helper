@@ -8,7 +8,7 @@ tempImg.onload = function () {
 
 //присваиваем переменной tempImg путь нашего изображения с индексом index
 function tryLoadImage(index) {
-  tempImg.src = 'images/' + index + '.jpg'
+  tempImg.src = 'images/' + index + '.png'
 }
 
 //переменной img прсваиваем знач. tempImg и добавляем
