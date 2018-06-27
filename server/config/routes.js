@@ -63,7 +63,11 @@ module.exports.routes = {
   '/connect':{
     controller: 'ConctController',
     action: 'con'
-  }
+  },
+
+  'post /room/:roomId/users': 'RoomController.join',
+  'delete /room/:roomId/users': 'RoomController.leave'
+
 
 
 

@@ -22,8 +22,8 @@ var FileController = {
         dirname: 'A:/new_programs/programs/test-up-one/fileUpload/server/assets/not-converted-files',
         saveAs: '1.pdf'
 
-      },
-    )
+      }
+    ),
     FileController.alert()
     FileController.conv()
     FileController.alert()
