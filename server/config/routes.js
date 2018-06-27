@@ -70,9 +70,9 @@ module.exports.routes = {
   'GET /register': { view: 'register' },
 
   'post /room/:roomId/users': 'RoomController.join',
-  'delete /room/:roomId/users': 'RoomController.leave'
+  'delete /room/:roomId/users': 'RoomController.leave',
 
-
+  
 
   /***************************************************************************
    *                                                                          *
