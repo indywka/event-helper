@@ -1,2 +1,3 @@
-# fileUpload
-Sails.js File Upload
+npm install pdf2png-mp
+npm install
+sails lift

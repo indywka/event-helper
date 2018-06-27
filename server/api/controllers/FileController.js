@@ -19,7 +19,6 @@ var FileController = {
     req.file('myFile').upload({
 
         maxBytes: 200000000000,
-        // dirname: './assets/pdf',
         saveAs: '1.pdf'
 
       }

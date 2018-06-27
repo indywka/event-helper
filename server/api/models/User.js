@@ -5,7 +5,7 @@
  * @description :: A short summary of how this model works and what it represents.
  *
  */
-
+const bcrypt = require('bcrypt-nodejs');
 module.exports = {
 
   // Subscribers only get to hear about update and destroy events.
@@ -13,9 +13,25 @@ module.exports = {
   // sending private messages to anyone but the intended recipient.
   // To get chat messages for a user, you subscribe to the `message`
   // context explicitly.
+
+  
+  
   autosubscribe: ['destroy', 'update'],
   attributes: {
-
+    email: {
+      type: 'email',
+      required: true,
+      unique: true
+    },
+    username: {
+      type: 'string',
+      required: true,
+      unique: true
+    },
+    password: {
+      type: 'string',
+      required: true
+    },
     name: 'string',
     rooms: {
       collection: 'room',
@@ -23,6 +39,19 @@ module.exports = {
       dominant: true
     }
 
+  },
+
+  customToJSON: function() {
+    return _.omit(this, ['password'])
+  },
+  beforeCreate: function(user, cb){
+    bcrypt.genSalt(10, function(err, salt){
+      bcrypt.hash(user.password, salt, null, function(err, hash){
+        if(err) return cb(err);
+        user.password = hash;
+        return cb();
+      });
+    });
   },
 
   // Hook that gets called after the default publishUpdate is run.

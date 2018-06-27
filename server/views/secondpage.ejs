@@ -25,3 +25,29 @@
 <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src = "js/socket.js"></script>
 <script src = "js/vue.js"></script>
+<script src = js/room.js></script>
+<script>
+  var roomName = prompt('Please enter a name for the new room');
+
+  // As long as a name is entered, create the new room.
+  if (roomName) {
+    io.socket.post('/room', {name: roomName}, function(data) {
+
+      // Add the new room to the rooms list
+      addRoom(data);
+
+      // Select it in the list
+      $('#rooms-list').val(data.id);
+
+      // Create the room HTML
+      createPublicRoom({id:data.id, name:data.name});
+
+      // Join the room
+      io.socket.post('/room/'+data.id+'/users', {id: window.me.id});
+
+      // Set the room user count to 1
+      increaseRoomCount(data.id);
+
+    });
+  }
+</script>
