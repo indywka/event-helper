@@ -2,10 +2,11 @@ new Vue({
   el: '#secondpage',
   template: `
         <div>
-              <img id="slide" src="/images/1.png"/>
+              <img class="img1" id="slide" src="/images/1.png"/>
               <p><input type="button" value="Next" v-on:click="askServer('Next')"></p>
               <p><input type="button" value="Prev" v-on:click="askServer('Prev')"></p>
         </div>
+       
     `,
   methods: {
     askServer: function(param) {
@@ -23,12 +24,14 @@ new Vue({
         });
       }//обращение к контроллеру Slides.Prev
     }
-  }
+  } 
+  
 });
 
 new Vue({
   el: '#usersecondpage',
   template: `
-      <img id="slide" src="/images/1.png"/>
+      <img class="img1" id="slide" src="/images/1.png"/>
+      
     `
 });

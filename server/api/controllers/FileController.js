@@ -19,13 +19,14 @@ var FileController = {
     req.file('myFile').upload({
 
         maxBytes: 200000000000,
+        // dirname: './assets/pdf',
         saveAs: '1.pdf'
 
       }
     );
     res.redirect('back');
     FileController.alert();
-    ;
+    FileController.conv();
     FileController.alert();
     // res.redirect('/speak');
 
