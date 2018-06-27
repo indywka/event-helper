@@ -36,7 +36,7 @@ module.exports.routes = {
     view: 'start'
   },
 
-  '/user': {
+  '/use': {
     view: 'user'
   },
 
@@ -63,9 +63,16 @@ module.exports.routes = {
   '/connect':{
     controller: 'ConctController',
     action: 'con'
-  }
+  },
+  'GET /login': { view: 'login' },
+  'POST /login': 'AuthController.login',
+  '/logout': 'AuthController.logout',
+  'GET /register': { view: 'register' },
 
+  'post /room/:roomId/users': 'RoomController.join',
+  'delete /room/:roomId/users': 'RoomController.leave',
 
+  
 
   /***************************************************************************
    *                                                                          *
